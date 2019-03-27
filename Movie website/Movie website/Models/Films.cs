@@ -7,6 +7,7 @@ namespace Movie_website.Models
 {
     public class Films
     {
+        //Abdullah
         public virtual int FilmId { get; set; }
         public virtual int CategoryId { get; set; }
         public virtual string FilmName { get; set; }
