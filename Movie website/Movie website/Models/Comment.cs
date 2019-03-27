@@ -16,7 +16,7 @@ namespace Movie_website.Models
         public virtual int UserId { get; set; }
         public virtual int ParentCommentId { get; set; }
         public virtual NewsStories NewsStories { get; set; }
-        public virtual User User { get; set; }
+        public virtual Users User { get; set; }
 
     }
 }

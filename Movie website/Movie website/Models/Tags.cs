@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Movie_website.Models
 {
-    public class Tag
+    public class Tags
     {
         public virtual int TagId { get; set; }
 

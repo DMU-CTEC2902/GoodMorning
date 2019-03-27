@@ -7,14 +7,13 @@ namespace Movie_website.Models
 {
     public class Films
     {
-        //Abdullah
+        //this class countain the following properties 
         public virtual int FilmId { get; set; }
-        public virtual int CategoryId { get; set; }
         public virtual string FilmName { get; set; }
         public virtual string Description { get; set; }
         public virtual DateTime DateReleased { get; set; }
         public virtual string Language { get; set; }
-        public virtual Category Category { get; set; }
+        public virtual string Genre { get; set; }
 
     }
 }
