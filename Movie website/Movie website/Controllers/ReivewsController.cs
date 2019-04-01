@@ -17,8 +17,9 @@ namespace Movie_website.Controllers
         // GET: Reivews
         public ActionResult Index()
         {
-            var reivews = db.Reivews.Include(r => r.User);
-            return View(reivews.ToList());
+            //var reivews = db.Reivews.Include(r => r.User);
+            //return View(reivews.ToList());
+            return View(db.Reivews.ToList());
         }
 
         // GET: Reivews/Details/5
@@ -39,7 +40,7 @@ namespace Movie_website.Controllers
         // GET: Reivews/Create
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName");
+            //ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace Movie_website.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReivewId,Title,Comments,DateAdded,Marks,UserId")] Reivew reivew)
+        public ActionResult Create([Bind(Include = "ReivewId,Title,Comments,DateAdded,Marks")] Reivew reivew)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +58,7 @@ namespace Movie_website.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", reivew.UserId);
+            //ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", reivew.UserId);
             return View(reivew);
         }
 
@@ -73,7 +74,7 @@ namespace Movie_website.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", reivew.UserId);
+            //ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", reivew.UserId);
             return View(reivew);
         }
 
@@ -82,7 +83,7 @@ namespace Movie_website.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ReivewId,Title,Comments,DateAdded,Marks,UserId")] Reivew reivew)
+        public ActionResult Edit([Bind(Include = "ReivewId,Title,Comments,DateAdded,Marks")] Reivew reivew)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +91,7 @@ namespace Movie_website.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", reivew.UserId);
+            //ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", reivew.UserId);
             return View(reivew);
         }
 

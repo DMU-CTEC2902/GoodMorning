@@ -85,7 +85,7 @@ namespace Movie_website.Models
             film3.Language = "English";
             film3.DateReleased = new DateTime(2018, 8, 14);
             film3.Genre = "Action";
-            film3.Image = "C:/Users/Bin-A/Source/Repos/GoodMorning-Repo/Movie website/Movie website/Image/1.jpg";
+            film3.Image = "C:/Users/Bin-A/Source/Repos/GoodMorning-Repo/Movie website/Movie website/Image/3.jpg";
             //film3.Reivew = rev3;
             context.Film.Add(film3);
             Film film4 = new Film();
@@ -96,7 +96,7 @@ namespace Movie_website.Models
             film4.Language = "English";
             film4.DateReleased = new DateTime(2019, 03, 07);
             film4.Genre = "Biography";
-            film4.Image = "C:/Users/Bin-A/Source/Repos/GoodMorning-Repo/Movie website/Movie website/Image/1.jpg";
+            film4.Image = "C:/Users/Bin-A/Source/Repos/GoodMorning-Repo/Movie website/Movie website/Image/4.jpg";
             //film4.Reivew = rev4;
             context.Film.Add(film4);
             Film film5 = new Film();
@@ -107,7 +107,7 @@ namespace Movie_website.Models
             film5.Language = "English";
             film5.DateReleased = new DateTime(2018, 05, 05);
             film5.Genre = "Drama";
-            film5.Image = "C:/Users/Bin-A/Source/Repos/GoodMorning-Repo/Movie website/Movie website/Image/1.jpg";
+            film5.Image = "C:/Users/Bin-A/Source/Repos/GoodMorning-Repo/Movie website/Movie website/Image/5.jpg";
             //film5.Reivew = rev5;
             context.Film.Add(film5);
             Film film6 = new Film();
@@ -118,7 +118,7 @@ namespace Movie_website.Models
             film6.Language = "English";
             film6.DateReleased = new DateTime(2018, 8, 03);
             film6.Genre = "Drama";
-            film6.Image = "C:/Users/Bin-A/Source/Repos/GoodMorning-Repo/Movie website/Movie website/Image/1.jpg";
+            film6.Image = "C:/Users/Bin-A/Source/Repos/GoodMorning-Repo/Movie website/Movie website/Image/6.jpg";
             //film6.Reivew = rev6;
             context.Film.Add(film6);
 
