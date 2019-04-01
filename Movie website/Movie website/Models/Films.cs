@@ -14,6 +14,7 @@ namespace Movie_website.Models
         public virtual DateTime DateReleased { get; set; }
         public virtual string Language { get; set; }
         public virtual string Genre { get; set; }
+        public virtual string Image { get; set; }
 
     }
 }

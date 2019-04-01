@@ -12,6 +12,7 @@ namespace Movie_website.Models
         public virtual string ShortDesc { get; set; }
         public virtual string StoryLink { get; set; }
         public virtual DateTime DateAdded { get; set; }
-        public virtual Films FilmId { get; set; }
+        public virtual int FilmId { get; set; }
+        public virtual Films Films{ get; set; }
     }
 }

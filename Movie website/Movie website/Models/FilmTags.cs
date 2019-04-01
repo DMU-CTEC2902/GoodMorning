@@ -9,7 +9,9 @@ namespace Movie_website.Models
     {
         public virtual int FilmTagId { get; set; }
         public virtual int FilmId { get; set; }
-        public virtual Tags TagId { get; set; }
+        public virtual int TagId { get; set; }
+        public virtual Tags Tags { get; set; }
+        public virtual Films Films{ get; set; }
 
     }
 }
