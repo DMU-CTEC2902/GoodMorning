@@ -39,7 +39,7 @@ namespace Movie_website.Controllers
         // GET: Films/Create
         public ActionResult Create()
         {
-            ViewBag.ReviewId = new SelectList(db.Review, "ReviewId", "Title");
+            //ViewBag.ReviewId = new SelectList(db.Review, "ReviewId", "Title");
 
             return View();
         }
@@ -49,7 +49,7 @@ namespace Movie_website.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FilmId,FilmName,Description,DateReleased,Language,Genre,Image,ReviewId")] Film film)
+        public ActionResult Create([Bind(Include = "FilmId,FilmName,Description,DateReleased,Language,Genre,Image")] Film film)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +74,7 @@ namespace Movie_website.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.ReviewId = new SelectList(db.Review, "ReviewId", "Title", film.ReivewId);
+            //ViewBag.ReviewId = new SelectList(db.Review, "ReviewId", "Title", film.ReivewId);
 
             return View(film);
         }
@@ -84,7 +84,7 @@ namespace Movie_website.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FilmId,FilmName,Description,DateReleased,Language,Genre,Image,ReviewId")] Film film)
+        public ActionResult Edit([Bind(Include = "FilmId,FilmName,Description,DateReleased,Language,Genre,Image")] Film film)
         {
             if (ModelState.IsValid)
             {

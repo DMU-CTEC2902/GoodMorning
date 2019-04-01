@@ -18,6 +18,9 @@
     <table class="table">
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.FilmName)
             </th>
             <th>
@@ -32,14 +35,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.Genre)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
             <th></th>
         </tr>
     
     @foreach (var item in Model) {
         <tr>
+            <td>
+                <img id="img_1" src="@Url.Content(item.Image)" style="width:150px; height:180px;" />
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FilmName)
             </td>
@@ -56,12 +59,9 @@
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.FilmId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.FilmId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.FilmId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.FilmId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FilmId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FilmId })
             </td>
         </tr>
     }

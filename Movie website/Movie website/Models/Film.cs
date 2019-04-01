@@ -15,8 +15,8 @@ namespace Movie_website.Models
         public virtual string Language { get; set; }
         public virtual string Genre { get; set; }
         public virtual string Image { get; set; }
-        public virtual int ReivewId { get; set; }
-        public virtual Reivew Reivew { get; set; }
+        //public virtual int ReivewId { get; set; }
+        //public virtual Reivew Reivew { get; set; }
 
     }
 }
