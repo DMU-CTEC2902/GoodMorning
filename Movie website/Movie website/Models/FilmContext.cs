@@ -24,6 +24,7 @@ namespace Movie_website.Models
         public DbSet<Film> Film { get; set; }
         public DbSet<Reivew> Reviews { get; set; }
         public DbSet<MovieStar> MovieStar { get; set; }
+        public DbSet<MSComments> comments { get; set; }
         public DbSet<Tag> Tag { get; set; }
         public DbSet<User> user { get; set; }
         

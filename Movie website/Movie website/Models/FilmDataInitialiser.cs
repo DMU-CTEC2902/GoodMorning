@@ -134,6 +134,20 @@ namespace Movie_website.Models
             u2.Usertype = "Manager";
             u2.IsActive = true;
             context.user.Add(u2);
+            MovieStar s = new MovieStar();
+            s.Name = "Emily Brobst";
+            s.Image = "EmilyBrobst.jpg";
+            s.IsActor = true;
+            s.IsDirector = false;
+            context.MovieStar.Add(s);
+            MovieStar s1 = new MovieStar();
+            s1.Name = "Madison Iseman";
+            s1.Image = "MadisonIseman.jpg";
+            s1.IsActor = true;
+            s1.IsDirector = false;
+            context.MovieStar.Add(s1);
+
+
             base.Seed(context);
         }
     }
