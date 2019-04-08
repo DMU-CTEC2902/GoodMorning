@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Movie_website.Models.Reivew>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <p>
+        @Html.ActionLink("Create New Review", "Create", "Reivews", new { filmId = Request.Params["filmId"].ToString() }, null)
+
+    </p>
+    <p>
+        Selected Film Reviews
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Film.FilmName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAdded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marks)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Film.FilmName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAdded)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marks)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ReivewId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ReivewId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ReivewId })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p>
+        Average Score : @ViewBag.AverageValue;
+    </p>
+    <div>
+        @Html.ActionLink("Back to Films","Index", "Films")
+    </div>
+</body>
+</html>

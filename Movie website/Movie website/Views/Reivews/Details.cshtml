@@ -1,0 +1,83 @@
+﻿@model Movie_website.Models.Reivew
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Reivew</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Film.Image)*@
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.Film.Image)*@
+                <img id="img_1" src="@Url.Content("~/Image/" + Model.Film.Image)" style="width:150px; height:180px;" />
+            </dd>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Film.FilmName)*@
+            </dt>
+
+            <dd>
+                <strong>  @Html.DisplayFor(model => model.Film.FilmName)</strong>
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.User.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Comments)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comments)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateAdded)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateAdded)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Marks)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marks)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ReivewId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
