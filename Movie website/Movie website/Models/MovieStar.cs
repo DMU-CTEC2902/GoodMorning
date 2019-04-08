@@ -13,6 +13,5 @@ namespace Movie_website.Models
         public virtual string Image { get; set; }
         public virtual Boolean IsActor { get; set; }
         public virtual Boolean IsDirector { get; set; }
-
     }
 }
