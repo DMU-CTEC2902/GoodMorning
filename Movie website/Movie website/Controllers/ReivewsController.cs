@@ -12,14 +12,30 @@ namespace Movie_website.Controllers
 {
     public class ReivewsController : Controller
     {
-        private ReivewContext db = new ReivewContext();
+        private FilmContext db = new FilmContext();
 
+        public ActionResult FilmReviews(int filmId)
+        {
+            IEnumerable<Reivew> lstReviews = db.Reviews.ToList();
+            var result = lstReviews.Where(s => s.FilmId == filmId);
+            var total = lstReviews.Sum(s => s.Marks);
+            var noOfItems = lstReviews.Count(); 
+            if(noOfItems> 0)
+            {
+                ViewBag.AverageValue = total / noOfItems; 
+            }
+            else
+            {
+                ViewBag.AverageValue = 0; 
+            }
+            // var reviews = db.Reviews.Select(k => k.FilmId == filmId).ToList();
+            return View(result.ToList());
+        }
         // GET: Reivews
         public ActionResult Index()
         {
-            //var reivews = db.Reivews.Include(r => r.User);
-            //return View(reivews.ToList());
-            return View(db.Reivews.ToList());
+            var reviews = db.Reviews.Include(r => r.Film).Include(r => r.User);
+            return View(reviews.ToList());
         }
 
         // GET: Reivews/Details/5
@@ -29,7 +45,7 @@ namespace Movie_website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reivew reivew = db.Reivews.Find(id);
+            Reivew reivew = db.Reviews.Find(id);
             if (reivew == null)
             {
                 return HttpNotFound();
@@ -38,27 +54,36 @@ namespace Movie_website.Controllers
         }
 
         // GET: Reivews/Create
-        public ActionResult Create()
+        //public ActionResult Create()
+        //{
+        //    ViewBag.FilmId = new SelectList(db.Film, "FilmId", "FilmName");
+        //    ViewBag.UserId = new SelectList(db.user, "UserId", "UserName");
+        //    return View();
+        //}
+        public ActionResult Create(int filmId)
         {
-            //ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName");
+            ViewBag.FilmId = new SelectList(db.Film, "FilmId", "FilmName",filmId);
+            ViewBag.UserId = new SelectList(db.user, "UserId", "UserName");
             return View();
         }
+
 
         // POST: Reivews/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReivewId,Title,Comments,DateAdded,Marks")] Reivew reivew)
+        public ActionResult Create([Bind(Include = "ReivewId,Title,Comments,DateAdded,Marks,FilmId,UserId")] Reivew reivew)
         {
             if (ModelState.IsValid)
             {
-                db.Reivews.Add(reivew);
+                db.Reviews.Add(reivew);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("FilmReviews", new { filmId = reivew.FilmId});
             }
 
-            //ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", reivew.UserId);
+            ViewBag.FilmId = new SelectList(db.Film, "FilmId", "FilmName", reivew.FilmId);
+            ViewBag.UserId = new SelectList(db.user, "UserId", "UserName", reivew.UserId);
             return View(reivew);
         }
 
@@ -69,12 +94,13 @@ namespace Movie_website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reivew reivew = db.Reivews.Find(id);
+            Reivew reivew = db.Reviews.Find(id);
             if (reivew == null)
             {
                 return HttpNotFound();
             }
-            //ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", reivew.UserId);
+            ViewBag.FilmId = new SelectList(db.Film, "FilmId", "FilmName", reivew.FilmId);
+            ViewBag.UserId = new SelectList(db.user, "UserId", "UserName", reivew.UserId);
             return View(reivew);
         }
 
@@ -83,7 +109,7 @@ namespace Movie_website.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ReivewId,Title,Comments,DateAdded,Marks")] Reivew reivew)
+        public ActionResult Edit([Bind(Include = "ReivewId,Title,Comments,DateAdded,Marks,FilmId,UserId")] Reivew reivew)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +117,8 @@ namespace Movie_website.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", reivew.UserId);
+            ViewBag.FilmId = new SelectList(db.Film, "FilmId", "FilmName", reivew.FilmId);
+            ViewBag.UserId = new SelectList(db.user, "UserId", "UserName", reivew.UserId);
             return View(reivew);
         }
 
@@ -102,7 +129,7 @@ namespace Movie_website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reivew reivew = db.Reivews.Find(id);
+            Reivew reivew = db.Reviews.Find(id);
             if (reivew == null)
             {
                 return HttpNotFound();
@@ -115,8 +142,8 @@ namespace Movie_website.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Reivew reivew = db.Reivews.Find(id);
-            db.Reivews.Remove(reivew);
+            Reivew reivew = db.Reviews.Find(id);
+            db.Reviews.Remove(reivew);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
