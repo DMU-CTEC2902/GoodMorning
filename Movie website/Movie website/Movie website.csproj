@@ -250,8 +250,11 @@
     <Content Include="Image\8.jpg" />
     <Content Include="Image\9.jpg" />
     <Content Include="Image\EmilyBrobst.jpg" />
+    <Content Include="Image\Jason Clarke.jpg" />
+    <Content Include="Image\Luke Perry.jpg" />
     <Content Include="Image\MadisonIseman.jpg" />
     <Content Include="Image\Mckenna Grace.jpg" />
+    <Content Include="Image\Mike Moh.jpg" />
     <Content Include="Image\Patrick Wilson.jpg" />
     <Content Include="Image\Steve Coulter.jpg" />
     <Content Include="Image\Vera Farmiga.jpg" />
