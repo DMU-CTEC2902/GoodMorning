@@ -9,6 +9,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <title>Details</title>
 </head>
 <body>
@@ -16,54 +18,54 @@
         <h4>Film</h4>
         <hr />
         <dl class="dl-horizontal">
+
+            <dd>
+                @*@Html.DisplayFor(model => model.Image)*@ 
+                <img id="img_1" src="@Url.Content("~/Image/" + Model.Image)" style="width:150px; height:180px;" />
+            </dd>
+
             <dt>
                 @Html.DisplayNameFor(model => model.FilmName)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.FilmName)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Description)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Description)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.DateReleased)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.DateReleased)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Language)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Language)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Genre)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Genre)
             </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Image)
-            </dd>
-    
+
+
+
         </dl>
     </div>
     <p>
